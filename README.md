@@ -55,12 +55,34 @@
 ### 
 
 
-# Open DHCP Server Ports on Firewall
-### Allow DHCP port on firewall.
+### Open DHCP Server Ports on Firewall
+#### Allow DHCP port on firewall.
      sudo ufw allow  67/udp
-### Restart DHCP server to apply changes.     
+#### Restart DHCP server to apply changes.     
      sudo systemctl restart isc-dhcp-server.service
      sudo systemctl status isc-dhcp-server
      # tail -f /var/log/dhcpd.log
+# 
+
+##### commands - utility   
+     ### remove # sudo apt remove brasero -y
+     sudo apt-get install synaptic \
+     x11vnc net-tools \ 
+     gedit vnstat \
+     vnstat \
+     brasero \
+     acetoneiso \
+     ssh 
+     
+     sudo systemctl enable vnstat.service && \
+     sudo systemctl start vnstat.service  && \
+     sudo systemctl status vnstat.service
+     
+     # Network
+     sudo nmcli networking off
+     sudo nmcli networking on
      
      
+
+
+
