@@ -79,10 +79,36 @@
      sudo systemctl status vnstat.service
      
      # Network
+      #
+     nmcli c show
+     netstat -rn
+     route -n
+     netstat -rn
+     route -n
+     ip route
+
      sudo nmcli networking off
      sudo nmcli networking on
+     sudo systemctl restart NetworkManager.service
      
+#####  How to Modify Laptop Close Behavior in Ubuntu with HandleLidSwitch
+     sudo gedit /etc/systemd/logind.conf
+     ####HandleLidSwitch=suspend
+     ####HandleLidSwitchExternalPower=suspend
+     HandleLidSwitch=ignore
+     HandleLidSwitchExternalPower=ignore
+     reboot
      
+#### How to disable/enable GUI in Ubuntu 22.04 Jammy Jellyfish Linux Desktop
+     sudo systemctl set-default multi-user
+     reboot
+     #sudo systemctl stop lightdm
+     #sudo systemctl start lightdm
+     
+#### How to enable GUI to start on boot
+     sudo systemctl set-default graphical
+     sudo systemctl start lightdm
 
 
 
+     
