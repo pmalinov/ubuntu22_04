@@ -6,8 +6,8 @@
  ####################################
 
 ################################################################
-# command for set pass
-#                             x11vnc -storepasswd
+# command for set pass on VNC
+#                             x11vnc -storepasswd 
 # and insert # mypassword
 ###############################################################
 # start x11vnc # -forever
