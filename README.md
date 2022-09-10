@@ -1,4 +1,4 @@
-# ubuntu Mate 22_04
+# ubuntu Mate 22.04
 # 
 #### https://www.server-world.info/en/note?os=Ubuntu_22.04&p=dhcp&f=1
 ### Configure DHCP ( Dynamic Host Configuration Protocol ) Server to assign IP addresses to client hosts in local network. 
