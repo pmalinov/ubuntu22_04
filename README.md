@@ -64,15 +64,38 @@
      # tail -f /var/log/dhcpd.log
 # 
 
-##### commands - utility   
+
+
+
+
+###  commands - utility   
      ### remove # sudo apt remove brasero -y
-     sudo apt-get install synaptic \
-     x11vnc net-tools \ 
-     gedit vnstat \
-     vnstat \
-     brasero \
-     acetoneiso \
-     ssh 
+     # install 
+     sudo apt-get install -y synaptic gdebi ppa-purge\
+     x11vnc net-tools ssh gedit vnstat gfwu wavemon \ 
+     brasero acetoneiso vlc \
+       
+    sudo apt install ubuntu-restricted-extras p7zip-full p7zip-rar
+    sudo apt install fonts-crosextra-caladea fonts-crosextra-carlito
+    
+   # for DVD
+   sudo apt install libdvd-pkg
+   sudo dpkg-reconfigure libdvd-pkg
+   # sudo apt install dnsmasq
+   # apt -y install isc-dhcp-server
+
+
+#### How do I disable the boot splash screen
+     sudo su -
+     #edit
+     sudo gedit /etc/default/grub
+     ####GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+     GRUB_CMDLINE_LINUX_DEFAULT
+     sudo update-grub
+
+#### Cleen SWAP
+    sudo swapoff -a
+    sudo swapon -
      
      sudo systemctl enable vnstat.service && \
      sudo systemctl start vnstat.service  && \
