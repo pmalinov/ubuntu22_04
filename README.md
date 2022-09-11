@@ -4,15 +4,18 @@
 ### Configure DHCP ( Dynamic Host Configuration Protocol ) Server to assign IP addresses to client hosts in local network. 
 ### 	Install and Configure DHCP. On this example, it shows only for IPv4 configuration. 
 
-     root@dlp:~# apt -y install isc-dhcp-server
+### Edit 
+    root@dlp:~# apt -y install isc-dhcp-server
+    
+### 1 - Edit /etc/default/isc-dhcp-server
     root@dlp:~# vi /etc/default/isc-dhcp-server
     # line 4 : uncomment
 
     DHCPDv4_CONF=/etc/dhcp/dhcpd.conf
     # line 17 : specify interface to listen (replace it to your environment)
 
-    INTERFACESv4="enp1s0
-    "
+    INTERFACESv4="enp1s0"
+### 2 - Edit  /etc/dhcp/dhcpd.conf    
     root@dlp:~# vi /etc/dhcp/dhcpd.conf     # or sudo gedit /etc/dhcp/dhcpd.conf
     # line 10 : specify domain name
 
@@ -62,28 +65,7 @@
      sudo systemctl restart isc-dhcp-server.service
      sudo systemctl status isc-dhcp-server
      # tail -f /var/log/dhcpd.log
-# 
-
-
-
-
-
-###  commands - utility   
-     ### remove # sudo apt remove brasero -y
-     # install 
-     sudo apt-get install -y synaptic gdebi ppa-purge\
-     x11vnc net-tools ssh gedit vnstat gfwu wavemon \ 
-     brasero acetoneiso vlc \
-       
-    sudo apt install ubuntu-restricted-extras p7zip-full p7zip-rar
-    sudo apt install fonts-crosextra-caladea fonts-crosextra-carlito
-    
-   # for DVD
-   sudo apt install libdvd-pkg
-   sudo dpkg-reconfigure libdvd-pkg
-   # sudo apt install dnsmasq
-   # apt -y install isc-dhcp-server
-
+##### ############################################################
 
 #### How do I disable the boot splash screen
      sudo su -
@@ -96,7 +78,8 @@
 #### Cleen SWAP
     sudo swapoff -a
     sudo swapon -
-     
+#      
+##### Network Monitoring With vmstat
      sudo systemctl enable vnstat.service && \
      sudo systemctl start vnstat.service  && \
      sudo systemctl status vnstat.service
@@ -113,7 +96,9 @@
      sudo nmcli networking off
      sudo nmcli networking on
      sudo systemctl restart NetworkManager.service
-     
+# 
+
+
 #####  How to Modify Laptop Close Behavior in Ubuntu with HandleLidSwitch
      sudo gedit /etc/systemd/logind.conf
      ####HandleLidSwitch=suspend
@@ -121,17 +106,34 @@
      HandleLidSwitch=ignore
      HandleLidSwitchExternalPower=ignore
      reboot
-     
+#      
 #### How to disable/enable GUI in Ubuntu 22.04 Jammy Jellyfish Linux Desktop
      sudo systemctl set-default multi-user
      reboot
      #sudo systemctl stop lightdm
      #sudo systemctl start lightdm
-     
+#         
 #### How to enable GUI to start on boot
      sudo systemctl set-default graphical
      sudo systemctl start lightdm
+# 
 
+##### ####################################
+####  commands - utility   
+     ### remove # sudo apt remove brasero -y
+     # install 
+     sudo apt-get install -y synaptic gdebi ppa-purge\
+     x11vnc net-tools ssh gedit vnstat gfwu wavemon \ 
+     brasero acetoneiso vlc \
+       
+     sudo apt install ubuntu-restricted-extras p7zip-full p7zip-rar
+     sudo apt install fonts-crosextra-caladea fonts-crosextra-carlito
+     
+     # for DVD
+        sudo apt install libdvd-pkg
+        sudo dpkg-reconfigure libdvd-pkg
+        # sudo apt install dnsmasq
+        # apt -y install isc-dhcp-server
 
 
      
