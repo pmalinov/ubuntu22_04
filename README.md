@@ -122,9 +122,12 @@
 ####  commands - utility   
      ### remove # sudo apt remove brasero -y
      # install 
-     sudo apt-get install -y synaptic gdebi ppa-purge\
+     sudo apt-get install -y synaptic gdebi ppa-purge \
      x11vnc net-tools ssh gedit vnstat gfwu wavemon \ 
      brasero acetoneiso vlc \
+     vsftpd
+     
+     systemctl status vsftpd # status sftp server
        
      sudo apt install ubuntu-restricted-extras p7zip-full p7zip-rar
      sudo apt install fonts-crosextra-caladea fonts-crosextra-carlito
